@@ -4900,15 +4900,17 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.Arr.Exps.AsJSON,
+		C3.Plugins.VKBridge.Acts.StorageSet,
 		C3.Plugins.VKBridge.Acts.AdsMobile,
 		C3.Plugins.VKBridge.Acts.ShowAds,
 		C3.Plugins.System.Acts.SetVar,
-		C3.Plugins.VKBridge.Acts.StorageSet,
 		C3.Plugins.Audio.Acts.StopAll,
 		C3.Plugins.System.Acts.GoToLayoutByName,
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Acts.RestartLayout,
 		C3.Plugins.System.Acts.SubVar,
+		C3.Plugins.VKBridge.Acts.ShowInvite,
+		C3.Plugins.VKBridge.Acts.ShowWall,
 		C3.Plugins.System.Acts.ToggleBoolVar,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.Audio.Acts.SetSilent,
@@ -4917,14 +4919,15 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.gamepad.Cnds.OnGamepadConnected,
 		C3.Plugins.Arr.Exps.At,
 		C3.Plugins.Mouse.Cnds.OnClick,
+		C3.Plugins.LocalStorage.Acts.CheckItemExists,
 		C3.Plugins.VKBridge.Acts.StorageGet,
-		C3.Plugins.VKBridge.Cnds.StorageGetSuccess,
-		C3.Plugins.System.Exps.int,
-		C3.Plugins.VKBridge.Exps.StorageData,
 		C3.Plugins.LocalStorage.Cnds.OnItemExists,
 		C3.Plugins.Arr.Acts.JSONLoad,
 		C3.Plugins.LocalStorage.Exps.ItemValue,
-		C3.Plugins.Arr.Acts.SetSize
+		C3.Plugins.Arr.Acts.SetSize,
+		C3.Plugins.VKBridge.Cnds.StorageGetSuccess,
+		C3.Plugins.System.Exps.int,
+		C3.Plugins.VKBridge.Exps.StorageData
 	];
 };
 self.C3_JsPropNameTable = [
@@ -5033,6 +5036,8 @@ self.C3_JsPropNameTable = [
 	{Sprite5: 0},
 	{MageStrike: 0},
 	{VKBridge: 0},
+	{Share: 0},
+	{Friend: 0},
 	{Enemy: 0},
 	{Touching: 0},
 	{Max_Rocks: 0},
@@ -5280,6 +5285,10 @@ self.C3_ExpressionFuncs = [
 		() => "WIN!",
 		() => "money",
 		() => "Coins",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (v0.GetValue()).toString();
+		},
 		() => "cost",
 		p => {
 			const v0 = p._GetNode(0).GetVar();
@@ -5288,10 +5297,6 @@ self.C3_ExpressionFuncs = [
 		() => "Mobile",
 		() => "PC",
 		() => "LVL_MAX",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (v0.GetValue()).toString();
-		},
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => and("Level", v0.GetValue());
@@ -5303,6 +5308,11 @@ self.C3_ExpressionFuncs = [
 		() => "upg",
 		() => "Max_Rocks",
 		() => "restart",
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (and("Я прошел ", (v0.GetValue() - 1)) + " уровень!");
+		},
+		() => "https://vk.com/photo265383985_457242083",
 		() => "SoundControl",
 		() => -10,
 		() => "main",
@@ -5351,12 +5361,27 @@ self.C3_ExpressionFuncs = [
 		() => "SaveLoad2",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => f0();
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => f0(f1("LVL_MAX"));
 		},
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
-			return () => f0();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1("Coins"));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1("Max_Rocks"));
+		},
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			const f1 = p._GetNode(1).GetBoundMethod();
+			return () => f0(f1("Yazik"));
 		}
 ];
 
