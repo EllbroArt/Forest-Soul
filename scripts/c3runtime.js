@@ -5312,7 +5312,7 @@ self.C3_ExpressionFuncs = [
 			const v0 = p._GetNode(0).GetVar();
 			return () => (and("Я прошел ", (v0.GetValue() - 1)) + " уровень!");
 		},
-		() => "https://vk.com/photo265383985_457242083",
+		() => "https://vk.com/app8014566_265383985",
 		() => "SoundControl",
 		() => -10,
 		() => "main",
@@ -5377,11 +5377,6 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => f0(f1("Max_Rocks"));
-		},
-		p => {
-			const f0 = p._GetNode(0).GetBoundMethod();
-			const f1 = p._GetNode(1).GetBoundMethod();
-			return () => f0(f1("Yazik"));
 		}
 ];
 
