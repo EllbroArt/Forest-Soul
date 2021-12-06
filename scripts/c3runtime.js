@@ -4853,6 +4853,7 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Sprite.Acts.SetAnimFrame,
 		C3.Plugins.System.Exps.random,
 		C3.Plugins.Sprite.Acts.MoveToBottom,
+		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Sprite.Cnds.CompareInstanceVar,
 		C3.Plugins.Sprite.Acts.SetAnim,
 		C3.Plugins.System.Cnds.CompareVar,
@@ -4903,7 +4904,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.VKBridge.Acts.StorageSet,
 		C3.Plugins.VKBridge.Acts.AdsMobile,
 		C3.Plugins.VKBridge.Acts.ShowAds,
-		C3.Plugins.System.Acts.SetVar,
 		C3.Plugins.Audio.Acts.StopAll,
 		C3.Plugins.System.Acts.GoToLayoutByName,
 		C3.Plugins.System.Acts.GoToLayout,
@@ -5158,8 +5158,8 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			return () => Math.floor(f0(0, 1.9));
 		},
-		() => "Trees",
 		() => 1,
+		() => "Trees",
 		() => "Rocks",
 		p => {
 			const f0 = p._GetNode(0).GetBoundMethod();
@@ -5340,7 +5340,7 @@ self.C3_ExpressionFuncs = [
 		() => 0.5,
 		() => "TypeControl",
 		() => "Shop",
-		() => "Heros_Upgrade",
+		() => "Level0",
 		() => "Level_Select_",
 		() => 13,
 		() => 25,
@@ -5351,6 +5351,9 @@ self.C3_ExpressionFuncs = [
 		() => "levels",
 		() => "УРОВНИ",
 		() => "LEVELS",
+		() => "tutorial",
+		() => "ОБУЧЕНИЕ",
+		() => "TUTORIAL",
 		() => "shops",
 		() => "ПОКУПКИ",
 		() => "SHOP",
