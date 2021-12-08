@@ -4901,6 +4901,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Acts.SetX,
 		C3.Plugins.LocalStorage.Acts.SetItem,
 		C3.Plugins.Arr.Exps.AsJSON,
+		C3.Plugins.VKBridge.Acts.ShowInvite,
+		C3.Plugins.VKBridge.Acts.ShowWall,
 		C3.Plugins.VKBridge.Acts.StorageSet,
 		C3.Plugins.VKBridge.Acts.AdsMobile,
 		C3.Plugins.VKBridge.Acts.ShowAds,
@@ -4909,8 +4911,6 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.System.Acts.GoToLayout,
 		C3.Plugins.System.Acts.RestartLayout,
 		C3.Plugins.System.Acts.SubVar,
-		C3.Plugins.VKBridge.Acts.ShowInvite,
-		C3.Plugins.VKBridge.Acts.ShowWall,
 		C3.Plugins.System.Acts.ToggleBoolVar,
 		C3.Plugins.System.Cnds.CompareBoolVar,
 		C3.Plugins.Audio.Acts.SetSilent,
@@ -5284,6 +5284,11 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
+		p => {
+			const v0 = p._GetNode(0).GetVar();
+			return () => (and("Я прошел ", (v0.GetValue() - 1)) + " уровень!");
+		},
+		() => "https://vk.com/app8014566_265383985",
 		() => "winlose",
 		() => "ПОБЕДА!",
 		() => "WIN!",
@@ -5312,11 +5317,6 @@ self.C3_ExpressionFuncs = [
 		() => "upg",
 		() => "Max_Rocks",
 		() => "restart",
-		p => {
-			const v0 = p._GetNode(0).GetVar();
-			return () => (and("Я прошел ", (v0.GetValue() - 1)) + " уровень!");
-		},
-		() => "https://vk.com/app8014566_265383985",
 		() => "SoundControl",
 		() => -10,
 		() => "main",
