@@ -5179,7 +5179,7 @@ self.C3_ExpressionFuncs = [
 		},
 		() => 9,
 		() => 2,
-		() => 8,
+		() => 10,
 		() => "pc",
 		() => "joy",
 		p => {
@@ -5197,7 +5197,6 @@ self.C3_ExpressionFuncs = [
 		() => 6,
 		() => 180,
 		() => 3,
-		() => 10,
 		() => "Enemys",
 		() => "MoveTo",
 		() => "right",
@@ -5284,6 +5283,9 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => n0.ExpObject();
 		},
+		() => 486,
+		() => 208,
+		() => 175,
 		p => {
 			const v0 = p._GetNode(0).GetVar();
 			return () => (and("Я прошел ", (v0.GetValue() - 1)) + " уровень!");
