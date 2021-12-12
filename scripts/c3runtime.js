@@ -4931,7 +4931,8 @@ self.C3_GetObjectRefTable = function () {
 		C3.Plugins.Arr.Acts.SetSize,
 		C3.Plugins.VKBridge.Cnds.StorageGetSuccess,
 		C3.Plugins.System.Exps.int,
-		C3.Plugins.VKBridge.Exps.StorageData
+		C3.Plugins.VKBridge.Exps.StorageData,
+		C3.Plugins.LocalStorage.Cnds.OnItemMissing
 	];
 };
 self.C3_JsPropNameTable = [
@@ -5386,7 +5387,8 @@ self.C3_ExpressionFuncs = [
 			const f0 = p._GetNode(0).GetBoundMethod();
 			const f1 = p._GetNode(1).GetBoundMethod();
 			return () => f0(f1("Max_Rocks"));
-		}
+		},
+		() => 0.25
 ];
 
 
